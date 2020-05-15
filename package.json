@@ -1,0 +1,22 @@
+{
+  "name": "mycovid19app",
+  "version": "1.0.0",
+  "description": "App that updates data and statistics of Covid-19 pandemic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uchemangajs"
+  },
+    
+  "keywords": [
+    "\"Covid-19.",
+    "Statistics",
+    "data",
+    "pandemic\""
+  ],
+  "author": "UcheManga",
+  "license": "ISC"
+}
