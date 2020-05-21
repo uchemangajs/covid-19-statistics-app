@@ -7,9 +7,22 @@ const $totalCases = document.querySelector('[total_cases]');
 const $totalRecovered = document.querySelector('[total_recovered]');
 const $totalDeaths = document.querySelector('[total_deaths]');
 const $dateElem = document.querySelector('[date-elem]');
+// const $chartDivMedia = document.querySelector('[chart-div]');
+const x = window.matchMedia("(min-width: 48rem)");
+
 let data = {};
 console.log($collapsible);
 
+
+//     function mediaQuery (){
+//       if($chartDivMedia.style.display === 'none'){
+//         $chartDivMedia.style.display = '';
+          
+//       }else{
+//       $chartDivMedia.style.display = 'none';
+//   }
+
+//     }
     function toggleMenu () {
         if($dropdownMenu.style.display === 'none'){
            $dropdownMenu.style.display = '';
@@ -26,6 +39,7 @@ $barBtn.addEventListener("click", toggleMenu);
 for(let i=0; i < $collapsible.length; i++){
    console.log($collapsible[i])
     $collapsible[i].addEventListener("click", togglefxn);
+    x.addListener(togglefxn);
 
     const $chartDiv = $collapsible[i].querySelector('[chart-div]');
 
