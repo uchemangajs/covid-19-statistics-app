@@ -227,9 +227,10 @@ function logResult(result) {
   })();
 
   (function showNews (){
-    fetch("https://newsapi.org/v2/top-headlines?q=covid-19&apiKey=91382907a2c04a9ba9e60ca8bbac7643").then(data => {
-        return data.json()
-    }).then(d => {
+    fetch("https://newsapi.org/v2/top-headlines?q=covid-19&apiKey=86bfe8e7d643485aa6586ebb6ba2e883")
+    .then(data => {
+        return data.json()})
+        .then(d => {
         console.log(d);
         // articles = d.articles;
         Array.from(d.articles).forEach(news => {

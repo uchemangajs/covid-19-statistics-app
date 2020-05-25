@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background-color: c5c5c9;
+    /* background-color: c5c5c9; */
     margin-bottom: 1.2rem;
 }
 
@@ -29,6 +29,35 @@ a {
     color: #FCC133;
 }
 
+.banner {
+    align-content: center;
+    display: none;
+    justify-content: center;
+    width: 100%;
+  }
+
+  [install-btn] {
+    background-color: #ff9800;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 36px;
+    letter-spacing: 0;
+    margin: 0px;
+    min-width: 64px;
+    overflow: hidden;
+    padding: 0 8px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 30%;
+  }
+
 
 
 .bars {
@@ -41,6 +70,22 @@ a {
     
 /*    top:0.5rem;*/
 }
+
+.nav-icon:hover {
+    background-color: #296CDB;
+  }
+  
+  .nav-icon:focus {
+    background-color: #0F52C1;
+  
+    /* The outline parameter suppresses the border
+    color / outline when focused */
+    outline: 0;
+  }
+  
+  .bars:active {
+    background-color: #0039A8;
+  }
  
 .dropdown-content > i {
   position: absolute;
@@ -65,6 +110,8 @@ a {
     margin: 5px 0;
   /*  transition: all .2s ease-in-out;*/
   }
+
+  
 
 .dropdown-content {
   /* display: none; */
@@ -120,6 +167,10 @@ img {
 
 }
 
+/* .topic-link {
+    margin-bottom: 5rem;
+} */
+
 .sbstyle {
     width: 100%;
     display: flex;
@@ -127,7 +178,7 @@ img {
     align-items: center;
     border-radius: 3px;
     font-family: "monospace",Lucida Console, Courier;
-    
+    margin-top: 1rem;
 }
 
 .sform {
@@ -138,9 +189,10 @@ img {
     
 }
 
+
 .sform > input {
     width: 70%;
-    background-color: #293030;
+    background-color: #fff;
     border-radius: 3px;
     text-align: center;
     border-width: thin;
