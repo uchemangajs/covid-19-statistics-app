@@ -41,17 +41,20 @@ for(let i=0; i < $collapsible.length; i++){
     $collapsible[i].addEventListener("click", togglefxn);
     //  x.addListener(togglefxn);
 
-    const $chartDiv = $collapsible[i].querySelector('[chart-div]');
+    const $chartElem = $collapsible[i].querySelector('[my-chart]');
 
     const $upArrow = $collapsible[i].querySelector('[up-arrow]');
     const $downArrow = $collapsible[i].querySelector('[down-arrow]');
 
     function togglefxn () {
-        if($chartDiv.style.display === 'none' ){
-          $chartDiv.style.display = '';
-           
+        if($chartElem.classList.contains('hide') || $chartElem.style.display ==='none'){
+          $chartElem.classList.remove('hide');
+          $chartElem.style.display =''
+          showChart(); 
          }else{
-        $chartDiv.style.display = 'none';
+           
+        $chartElem.style.display = 'none';
+        $chartElem.classList.add('hide');
     };
     
     
@@ -63,10 +66,10 @@ for(let i=0; i < $collapsible.length; i++){
         $downArrow.style.display = '';
     }
      
-         showChart(); 
+        
     }
 
-}
+
 
    function showChart () {
       let numTotalCase = parseInt(data.total_cases.replace(/\,/g,''));
@@ -74,101 +77,107 @@ for(let i=0; i < $collapsible.length; i++){
       let numRecoverCase = parseInt(data.total_recovered.replace(/\,/g,''));
       let numTotalDeath= parseInt(data.total_deaths.replace(/\,/g,''));
       console.log(numTotalCase);
-      var ctx = document.getElementById('myChart1').getContext('2d');
-  var chart = new Chart(ctx, {
-      // The type of chart we want to create
-      type: 'pie',
-  
-      // The data for our dataset
-      data : {
-          datasets: [{
-              label: 'My First dataset',
-              backgroundColor: ['#FCC133', '#292930'],
-              borderColor: '#292930',
-              data: [numTotalCase, numNewCase]
-          }],
-      
-          // These labels appear in the legend and in the tooltips when hovering different arcs
-          labels: [
-              `Total Cases: ${data.total_cases}`,
-              `New Cases: ${data.new_cases}`,
-              
-          ]
-      },
-      // data: {
-      //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      //     datasets: [{
-      //         label: 'My First dataset',
-      //         backgroundColor: 'rgb(255, 99, 132)',
-      //         borderColor: 'rgb(255, 99, 132)',
-      //         data: [0, 10, 5, 2, 20, 30, 45]
-      //     }]
-      // },
-  
-      // Configuration options go here
-      options: {}
-  });
-  
-  var ctx = document.getElementById('myChart2').getContext('2d');
-  var chart = new Chart(ctx, {
-      // The type of chart we want to create
-      type: 'pie',
-  
-      // The data for our dataset
-      data : {
-          datasets: [{
-              label: 'My First dataset',
-              backgroundColor: ['#FCC133', '#3EB650'],
-              borderColor: 'none',
-              data: [numTotalCase, numRecoverCase]
-          }],
-      
-          // These labels appear in the legend and in the tooltips when hovering different arcs
-          labels: [
-              'Total Cases',
-              'Total Recovered',
-              
-          ]
-      },
-  
-      // Configuration options go here
-      options: {}
-  });
-  
-  var ctx = document.getElementById('myChart3').getContext('2d');
-  var chart = new Chart(ctx, {
-      // The type of chart we want to create
-      type: 'pie',
-  
-      // The data for our dataset
-      data : {
-          datasets: [{
-              label: 'My First dataset',
-              backgroundColor: ['#FCC133', '#E12B38'],
-              borderColor: 'none',
-              data: [numTotalCase, numTotalDeath]
-          }],
-      
-          // These labels appear in the legend and in the tooltips when hovering different arcs
-          labels: [
-              'Total Cases',
-              'Total Deaths',
-              
-          ]
-      },
-  
-      // Configuration options go here
-      options: {}
-  });
-  };
-    
 
-    
-    
-    
+      switch ($collapsible[i]) {
+        case $collapsible[0]:
+          var ctx = document.getElementById('myChart1').getContext('2d');
+          var chart = new Chart(ctx, {
+              // The type of chart we want to create
+              type: 'pie',
+          
+              // The data for our dataset
+              data : {
+                  datasets: [{
+                      label: 'My First dataset',
+                      backgroundColor: ['#FCC133', '#292930'],
+                      borderColor: '#292930',
+                      data: [numTotalCase, numNewCase]
+                  }],
+              
+                  // These labels appear in the legend and in the tooltips when hovering different arcs
+                  labels: [
+                      `Total Cases: ${data.total_cases}`,
+                      `New Cases: ${data.new_cases}`,
+                      
+                  ]
+              },
+              // data: {
+              //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+              //     datasets: [{
+              //         label: 'My First dataset',
+              //         backgroundColor: 'rgb(255, 99, 132)',
+              //         borderColor: 'rgb(255, 99, 132)',
+              //         data: [0, 10, 5, 2, 20, 30, 45]
+              //     }]
+              // },
+          
+              // Configuration options go here
+              options: {}
+          });
+          
+         
+          break;
 
-    
+          case $collapsible[1]:
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'pie',
+            
+                // The data for our dataset
+                data : {
+                    datasets: [{
+                        label: 'My First dataset',
+                        backgroundColor: ['#FCC133', '#3EB650'],
+                        borderColor: 'none',
+                        data: [numTotalCase, numRecoverCase]
+                    }],
+                
+                    // These labels appear in the legend and in the tooltips when hovering different arcs
+                    labels: [
+                        'Total Cases',
+                        'Total Recovered',
+                        
+                    ]
+                },
+            
+                // Configuration options go here
+                options: {}
+            });
 
+            break;
+
+            case $collapsible[2]:
+              var ctx = document.getElementById('myChart3').getContext('2d');
+              var chart = new Chart(ctx, {
+                  // The type of chart we want to create
+                  type: 'pie',
+              
+                  // The data for our dataset
+                  data : {
+                      datasets: [{
+                          label: 'My First dataset',
+                          backgroundColor: ['#FCC133', '#E12B38'],
+                          borderColor: 'none',
+                          data: [numTotalCase, numTotalDeath]
+                      }],
+                  
+                      // These labels appear in the legend and in the tooltips when hovering different arcs
+                      labels: [
+                          'Total Cases',
+                          'Total Deaths',
+                          
+                      ]
+                  },
+              
+                  // Configuration options go here
+                  options: {}
+              });
+              
+            }
+          }
+        }
+      
   
 function logResult(result) {
    
@@ -259,9 +268,3 @@ function logResult(result) {
 
   })();
   
-
-
-
-
-
-
