@@ -29,7 +29,7 @@ a {
     color: #FCC133;
 }
 
-.banner {
+/* .banner {
     align-content: center;
     display: none;
     justify-content: center;
@@ -58,7 +58,7 @@ a {
     width: 30%;
   }
 
-
+ */
 
 .bars {
     /* position:; */
@@ -207,12 +207,14 @@ img {
 }
 
 
+/*
 .collapsible {
     
     display: flex;
     flex-direction: column;
     
 }
+*/
 
 .arrow-div {
     margin : none;
@@ -241,6 +243,7 @@ i {
   -webkit-transform: rotate(-135deg);
 }
 
+/*
 .collapsible > div {
     width: 100%;
     display: flex;
@@ -258,6 +261,7 @@ i {
 .total-confirmed {
     background-color: #FCC133;
     }
+*/
 
 .cc {
     color:black;
@@ -285,9 +289,11 @@ label {
     }
 */
 
+/*
 .death-case {
     background-color: #E12B38;
 }
+*/
 
 /*
 .severe-case {
@@ -295,143 +301,26 @@ label {
 }
 */
 
+/*
 .recovery-case {
     background-color: #3EB650
 }
 
+*/
 .hide {
     display: none;
 }
 
-.artlbl {
-    width: 100%;
-    display: flex;
-    justify-content: center;    
-}
-
-.artlbl > label > h4 {
-    margin-bottom: 0.3rem;
-}
-
-/*
-article > p {
-    margin-top: 1em;
-}
-*/
-
- .article {
-        margin-bottom: 10px;
-        background-color: rgba(81, 182, 182, 0.295);
-        padding: 5px 10px;
-         overflow-Y: auto;
-    }
-
-    .imgHolder {
-        width: 100%;
-        height: 200px;
-        overflow: hidden;
-    }
-
-    .imgHolder img {
-        max-width: 100%;
-    }
-
-.article > p {
-    overflow-y: auto;
-    color: black;
-}
-
-#news > a {
-    color: black;
-
-}
-
-.news-link {
-    color: darkblue;
-}
-  
-@media screen and (min-width: 48rem){
-    [session-one]{
-       display: flex; 
-       flex-flow: row;
-       width: 100%;
-        height: 20rem;
-        justify-content:space-around;
-        align-content: stretch;
-        
-    }
-    
-    .collapsible {
-        flex-grow: 1;
-        max-width: 33%;
-        
-        
-    }
-
-    .collapsible > div {
-        width:100%;
-        height:50%;
-        display: flex;
-        flex-flow: column;
-        align-content: center;
-        align-items: center;
-        border-radius: 3px;
-        font-family: "monospace",Lucida Console, Courier;
-        font-weight: bold;
-        margin-bottom: 3px;
-        }
-
-        .arrow-div {
-            display: none;
-        }
-
-        canvas {
-            display: inline-block;
-            max-width: 100%;
-            
-            box-sizing: border-box;
-            max-height: 100%;
-        }
-
-        #news {
-           display: grid;
-           grid-template-columns: auto auto auto;
-           
-           }
-
-       
-        .article {
-            margin: 0.1rem;
-            height: 30rem ;
-        }
-
-        @media screen and (max-width: 900px) and (min-width: 700px) {
-            #country {
-                display: grid;
-                grid-template-columns: auto auto;  
-             }
-                .country{
-                    margin: 0.2rem
-                }
-        }
-
-        
-
-
-#country {
-    display: grid;
-    grid-template-columns: auto auto auto;  
- }
-    .country{
-        margin: 0.2rem
-    }
-}
 
 
 
 #country{
-    margin: 1px 1px 1px 1px;
+    display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1rem;
 }
+
+
 
 .country-lable{
     color: #fff;
@@ -503,7 +392,7 @@ article > p {
 
 .total-case-title{
     color: #FCC133;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight:normal;
     font-size-adjust: auto;
@@ -512,7 +401,7 @@ article > p {
 }
 .total-case-data{
     color: #FCC133;
-    font-size: 2em;
+    font-size: 1.8em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight:normal;
 }
@@ -521,14 +410,14 @@ article > p {
 } */
 .recovery-case-title{
     color: #3EB650;
-    font-size: 130%;
+    font-size: 120%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight:normal;
     font-size-adjust:auto;
 }
 .recovery-case-data{
     color: #3EB650;
-    font-size: 2em;
+    font-size: 1.8em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight:normal;
     
@@ -538,14 +427,14 @@ article > p {
 } */
 .death-case-title{
     color: #E12B38;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight:normal;
     font-size-adjust: auto;
 }
 .death-case-data{
     color: #E12B38;
-    font-size: 2em;
+    font-size: 1.8em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight:normal;
 }

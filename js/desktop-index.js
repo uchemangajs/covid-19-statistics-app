@@ -232,20 +232,22 @@ var chart = new Chart(ctx, {
         return data.json()})
         .then(d => {
         console.log(d);
-        // articles = d.articles;
-        Array.from(d.articles).forEach(news => {
-            document.querySelector("#news").innerHTML+=`
-            <a href="${news.url}">
-                <div class="article">
-                 <h3>${news.title}</h3>
-                 <div class="imgHolder">
-                     <img src="${news.urlToImage}"  alt="">
-                 </div>
-                 <p>${news.description} </p>
-                </div>
-                </a>`
+                // articles = d.articles;
+                Array.from(d.articles).forEach(news => {
+                  document.querySelector("#news").innerHTML+=`
+                  <a href="${news.url}">
+                      <div class="article">
+                       <h3>${news.title}</h3>
+                       <div class="imgHolder">
+                           <img src="${news.urlToImage}"  alt="">
+                       </div>
+                       <p>${news.description} </p>
+                      </div>
+                      </a>`
         })
     });
+
+
 
   })();
   
