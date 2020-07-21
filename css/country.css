@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 
 body {
     
@@ -228,7 +231,7 @@ img {
 
 i {
   border:solid white;
-  border-width: 0 3px 3px 0;
+  border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
 }
@@ -316,7 +319,7 @@ label {
 
 #country{
     display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1rem;
 }
 
@@ -324,7 +327,8 @@ label {
 
 .country-lable{
     color: #fff;
-    font-size:2rem;
+    
+    font-size:1.8rem;
     margin-left: 1rem;
     font-family:serif;
     text-decoration: none;
@@ -339,9 +343,15 @@ label {
 .country{
     display: flex;
     flex-flow: column;
-    background-color:#3c3c3c;
-    margin-bottom: 0.2rem;
+
     
+}
+
+.country-container{
+    background:#3c3c3c;
+    display:flex;
+    flex-flow: column;
+    margin-bottom: 0.2rem;
 }
 
 .country-divs {
@@ -439,5 +449,7 @@ label {
     font-weight:normal;
 }
 
-
+[chart-div]{
+    background-color: #3c3c3c;
+}
 
