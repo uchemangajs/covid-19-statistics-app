@@ -1,4 +1,12 @@
-'use strict';
+
+   'use strict';
+   
+
+
+    
+     
+
+        
 
 const $collapsible = document.getElementsByClassName('collapsible');
 const $dropdownMenu = document.querySelector('[dropdown-menu]');
@@ -8,23 +16,21 @@ const $totalRecovered = document.querySelector('[total_recovered]');
 const $totalDeaths = document.querySelector('[total_deaths]');
 const $dateElem = document.querySelector('[date-elem]');
 const searchInput = document.querySelector("[search-input]");
-
+const country = searchInput.value;
 
 // const $chartDivMedia = document.querySelector('[chart-div]');
 // const x = window.matchMedia("(min-width: 48rem)");
 
 let data = {};
 // console.log($collapsible);
-
 searchInput.addEventListener("keyup", function SearchCountry(e){
-  if(e.keyCode === 13){
-      event.preventDefault();
-      location.href = "/html/country-search.html"
-      console.log(searchInput.value);
-      
+    if(e.keyCode === 13){
+        event.preventDefault();
+        console.log(searchInput.value);
+       
 
-      // findCountry(country);
-  }
+        findCountry(country);
+    }
 })
 
 
@@ -243,43 +249,21 @@ function logResult(result) {
 
   
 
-  (function fetchJSON() {
-    //   const apiLink = https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php;
-    //   const apiKey = 6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6;
-    //   const api = 'apiLink/apiKey'
-      fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-            "x-rapidapi-key": "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6"
-        }
-    })
-      .then(validateResponse)
-      .then(readResponseAsJSON)
-      .then(logResult)
-      .catch(logError);
-  })();
+  function findCountry(country){
+    // inputCountry = document.querySelector('[search-input]');        
+        country = searchInput.value;
+        console.log(country);
 
-  (function showNews (){
-    fetch("https://newsapi.org/v2/top-headlines?q=covid-19&apiKey=86bfe8e7d643485aa6586ebb6ba2e883")
-    .then(data => {
-        return data.json()})
-        .then(d => {
-        console.log(d);
-        // articles = d.articles;
-        Array.from(d.articles).forEach(news => {
-            document.querySelector("#news").innerHTML+=`
-            <a href="${news.url}">
-                <div class="article">
-                 <h3>${news.title}</h3>
-                 <div class="imgHolder">
-                     <img src="${news.urlToImage}"  alt="">
-                 </div>
-                 <p>${news.description} </p>
-                </div>
-                </a>`
-        })
-    });
-
-  })();
+        fetch(`https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=${country}`, {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+        "x-rapidapi-key": "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6"
+    }
+})
+.then(validateResponse)
+.then(readResponseAsJSON)
+.then(logResult)
+.catch(logError);
+}   
   

@@ -5,22 +5,11 @@
     <meta name="description" content="Covid-19 Pandemic data and Statistics" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Covid-19 Statistics</title>
-    <link href="./css/index2.css" rel="stylesheet" type="text/css"> 
+    <link href="../css/index2.css" rel="stylesheet" type="text/css"> 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     
-    <link rel="manifest" href="manifest.json">
-
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Covid-19 Stat">
-  <meta name="apple-mobile-web-app-title" content="Covid-19 Stat">
-  <meta name="theme-color" content="#FF9800">
-  <meta name="msapplication-navbutton-color" content="#FF9800">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="msapplication-starturl" content="/index.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="icon" sizes="225x225" href="image/images-removebg-preview.png">
+   
+  <link rel="icon" sizes="225x225" href="../image/images-removebg-preview.png">
 
 </head>
 <body>
@@ -28,7 +17,7 @@
     <header>
         <nav >
           <div class="logo">
-           <img src="./image/images-removebg-preview.png" alt="Logo" aria-disabled="true"/>
+           <img src="../image/images-removebg-preview.png" alt="Logo" aria-disabled="true"/>
            </div>
               
            <section id="installBanner" class="banner">
@@ -56,11 +45,10 @@
         <h2 topic-link> <a href="#"> covid-19 data and statistics</a></h2>
 
         <div class="sbstyle">
-            <form action="#"  class = "sform">
-                <input type="text" search-input autofocus placeholder="Search..." aria-label="search-box">
-   <!--                   <input type="submit" value="search" >-->
-                  </form> 
-                  </div>
+          <form action="#"  class = "sform">
+            <input id="my-input" search-input type="search"  autofocus placeholder="Search..." aria-label="search-box" value="Nigeria">
+              </form>
+             </div>
 
         <h4>Global Data and statistics</h4>
         <em>Updated on <span date-elem >date: </span> </em>
@@ -113,13 +101,6 @@
         </div>
     </div>
 
-
-     
-
-
-
-    
-
     </section>
        
                  
@@ -133,15 +114,17 @@
     </section>
 
     </div>
+
+    <script async type="text/javascript" src="../js/country-search.js"></script>
     
-    <script>  
+    <!-- <script>  
       if (window.matchMedia("(max-width: 850px)").matches) {
       document.write('<script type="text/javascript" src="./js/phone-index.js"><\/script>');
       }else {
       document.write('<script type="text/javascript" src= "./js/desktop-index.js"><\/script>');
       }
       </script>
-      <!-- <script type="text/javascript" src="./js/country.js"></script> -->
+      <script type="text/javascript" src="./js/country.js"></script> -->
     <!-- <script type="text/javascript" src="./js/index.js"></script> -->
     <!-- <script>
         if ('serviceWorker' in navigator) {
