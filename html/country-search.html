@@ -20,9 +20,9 @@
            <img src="../image/images-removebg-preview.png" alt="Logo" aria-disabled="true"/>
            </div>
               
-           <section id="installBanner" class="banner">
+           <!-- <section id="installBanner" class="banner">
             <button id="installBtn" install-btn>Install app</button>
-          </section>   
+          </section>    -->
                  
              <div class="dropdown" >     
             <button class="bars" aria-label="menu dropdown button" bar-btn>
@@ -33,7 +33,7 @@
 
             <div class="dropdown-content" dropdown-menu style="display: none;" aria-owns="bar-btn">
                 <i class="arrow down" down-arrow></i>
-                <a href="#">Global Statistics</a>
+                <a href="/index.html">Global Statistics</a>
                 <a href="/html/country-data.html"> Country Statistics</a>
               </div>
             </div>
@@ -46,7 +46,7 @@
 
         <div class="sbstyle">
           <form action="#"  class = "sform">
-            <input id="my-input" search-input type="search"  autofocus placeholder="Search..." aria-label="search-box" value="Nigeria">
+            <input id="my-input" search-input type="search"  autofocus placeholder="Search..." aria-label="search-box">
               </form>
              </div>
 
@@ -63,7 +63,7 @@
                </div>
             
             <label for="cc"><h4>total confirmed cases</h4></label>
-            <div class="cc" total_cases>10000</div>
+            <div class="cc" total_cases_searched>10000</div>
 
         </div>
         <div class="cc-chart" chart-div>
@@ -79,7 +79,7 @@
                 <i class="arrow up" down-arrow style="display: none;"></i>
                </div>
             <label for="rc" wc><h4>recovery cases</h4></label>
-            <div class="rc cc" wc total_recovered>60000</div>
+            <div class="rc cc" wc total_recovered_searched>60000</div>
 
         </div>
         <div class="rc-chart"  chart-div>
@@ -93,7 +93,7 @@
                 <i class="arrow up" down-arrow style="display: none;"></i>
                </div>
             <label for="cc" wc><h4>death cases</h4></label>
-            <div class="dc cc" wc total_deaths>10000</div>
+            <div class="dc cc" wc total_deaths_searched>10000</div>
 
         </div>
         <div class="dc-chart"  chart-div>
@@ -115,62 +115,7 @@
 
     </div>
 
-    <script async type="text/javascript" src="../js/country-search.js"></script>
-    
-    <!-- <script>  
-      if (window.matchMedia("(max-width: 850px)").matches) {
-      document.write('<script type="text/javascript" src="./js/phone-index.js"><\/script>');
-      }else {
-      document.write('<script type="text/javascript" src= "./js/desktop-index.js"><\/script>');
-      }
-      </script>
-      <script type="text/javascript" src="./js/country.js"></script> -->
-    <!-- <script type="text/javascript" src="./js/index.js"></script> -->
-    <!-- <script>
-        if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
-        .then(swReg => {
-          console.log('Service Worker is registered', swReg);
-        })
-        .catch(err => {
-          console.error('Service Worker Error', err);
-        });
-      });
-    }
-    </script>
-
-<script>
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', event => {
-
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      event.preventDefault();
-
-      // Stash the event so it can be triggered later.
-      deferredPrompt = event;
-
-      // Attach the install prompt to a user gesture
-      document.querySelector('#installBtn').addEventListener('click', event => {
-
-        // Show the prompt
-        deferredPrompt.prompt();
-
-        // Wait for the user to respond to the prompt
-        deferredPrompt.userChoice
-          .then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-              console.log('User accepted the A2HS prompt');
-            } else {
-              console.log('User dismissed the A2HS prompt');
-            }
-            deferredPrompt = null;
-          });
-      });
-
-      // Update UI notify the user they can add to home screen
-      document.querySelector('#installBanner').style.display = 'flex';
-    });
-  </script> -->
+    <script async type="module" src="../js/country-search.js"></script>
+       
 </body>
 </html>

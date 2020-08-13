@@ -3,7 +3,8 @@
 // const country_btn = document.querySelector('[country-btn]');
 // country_btn.addEventListener('click', showCountry);
 
-const searchInput = document.querySelector("[search-input]");
+ 
+ 
 
 let results = {};
 
@@ -29,7 +30,7 @@ let results = {};
               <div class="country-arrow-div"> <i class="arrow down" ></i>
                   <i class="arrow up"  style="display: none;"></i>
                  </div>
-              <label for="country" class="country-lable"> ${country.country_name}</label>
+              <label for="country" class="country-lable" country-name-label> ${country.country_name}</label>
               <div class="total-case-div  country-divs" >
               <span class = "total-case-title  title-span">Total Cases:</span>
               <span class="total-case-data  data-span" total-case-data>${country.cases}</span>
@@ -55,10 +56,7 @@ let results = {};
             
         }).then(() => {
             const $countryChart =document.querySelectorAll('[country-chart]');
-            
-            
-     
-               $countryChart.forEach((item,index,arr) => {
+            $countryChart.forEach((item,index,arr) => {
                 
                     const $upArrow = item.querySelector('[up-arrow]');
                     const $downArrow = item.querySelector('[down-arrow]');
@@ -69,13 +67,15 @@ let results = {};
 
                                 console.log(index,item.currentTarget);
                                 
-                                if($chartElem.classList.contains('hide') ){
+                                if($chartElem.classList.contains('hide') || $chartElem.style.display ==='none' ){
                                      $chartElem.classList.remove('hide');
+                                     $chartElem.style.display =''
                                     //  showChart($chartElem); 
                                     let numTotalCase = parseInt( item.currentTarget.querySelector("[total-case-data]").innerText.replace(/\,/g,''));
                                     let numDeathCase = parseInt( item.currentTarget.querySelector("[death-case-data]").innerText.replace(/\,/g,''));
                              
 
+                                   
                                     var ctx = item.currentTarget.querySelector('[my-Chart]').getContext('2d');
                                     var chart = new Chart(ctx, {
                                         // The type of chart we want to create
@@ -114,7 +114,8 @@ let results = {};
                               
 
                                     }else{                                    
-                                        $chartElem.classList.add('hide');}     
+                                        $chartElem.style.display = 'none';
+                                      $chartElem.classList.add('hide');}     
                         }   
                     })
         })
@@ -122,15 +123,31 @@ let results = {};
          }
       )();
 
+      const searchInput = document.querySelector("[search-input]");
+    let searchValue = searchInput.value;
+
     
     searchInput.addEventListener("keyup", function SearchCountry(e){
         if(e.keyCode === 13){
             event.preventDefault();
             console.log(searchInput.value);
-
-            findCountry(country);
+            // location.href="/html/country-search.html";
+            findCountry();
         }
-    })
+    })  
 
+    function findCountry(searchCountry){
+        const $countryChart =document.querySelectorAll('[country-chart]');
+            $countryChart.forEach((item,index,arr) => {
+           let $countryName = item.querySelector('[country-name-label]');
+           let countryName = $countryName.innerText.toUpperCase() || $countryName.innerContent.toUpperCase() ;
+          let SearchName = searchInput.value.toUpperCase();
+           console.log(index,countryName);
+        if(countryName.indexOf(SearchName) > -1){
+            item.style.display = "";
+        }else{
+            item.style.display = "none";
+        }
 
-    
+    })}
+   

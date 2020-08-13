@@ -7,37 +7,9 @@ const $totalCases = document.querySelector('[total_cases]');
 const $totalRecovered = document.querySelector('[total_recovered]');
 const $totalDeaths = document.querySelector('[total_deaths]');
 const $dateElem = document.querySelector('[date-elem]');
-const searchInput = document.querySelector("[search-input]");
-
-
-// const $chartDivMedia = document.querySelector('[chart-div]');
-// const x = window.matchMedia("(min-width: 48rem)");
+const $countryName = document.querySelector("[country-name]");
 
 let data = {};
-// console.log($collapsible);
-
-searchInput.addEventListener("keyup", function SearchCountry(e){
-  if(e.keyCode === 13){
-      event.preventDefault();
-      location.href = "/html/country-search.html"
-      console.log(searchInput.value);
-      
-
-      // findCountry(country);
-  }
-})
-
-
-
-//     function mediaQuery (){
-//       if($chartDivMedia.style.display === 'none'){
-//         $chartDivMedia.style.display = '';
-          
-//       }else{
-//       $chartDivMedia.style.display = 'none';
-//   }
-
-//     }
     function toggleMenu () {
         if($dropdownMenu.style.display === 'none'){
            $dropdownMenu.style.display = '';
@@ -54,7 +26,6 @@ $barBtn.addEventListener("click", toggleMenu);
 for(let i=0; i < $collapsible.length; i++){
    console.log($collapsible[i])
     $collapsible[i].addEventListener("click", togglefxn);
-    //  x.addListener(togglefxn);
 
     const $chartElem = $collapsible[i].querySelector('[my-chart]');
 
@@ -145,7 +116,7 @@ for(let i=0; i < $collapsible.length; i++){
                         label: 'My First dataset',
                         backgroundColor: ['#FCC133', '#3EB650'],
                         borderColor: 'none',
-                        data: [numTotalCase, numRecoverCase]
+                        data: [numRecoverCase, numTotalCase]
                     }],
                 
                     // These labels appear in the legend and in the tooltips when hovering different arcs
@@ -244,9 +215,7 @@ function logResult(result) {
   
 
   (function fetchJSON() {
-    //   const apiLink = https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php;
-    //   const apiKey = 6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6;
-    //   const api = 'apiLink/apiKey'
+    
       fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
         "method": "GET",
         "headers": {
@@ -282,4 +251,44 @@ function logResult(result) {
     });
 
   })();
+
+  const searchInput = document.querySelector("[search-input]");
+  let searchValue = searchInput.value;
+  console.log(searchValue)
+  
+   searchInput.addEventListener("keyup", function SearchCountry(e){
+  if(e.keyCode === 13){
+      event.preventDefault();
+      console.log(searchInput.value); 
+      // location.href="/html/country-search.html";            
+      findCountry();
+  }
+})
+
+function findCountry(country){      
+  
+  country=searchInput.value;
+      console.log(country);
+
+      fetch(`https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=${country}`, {
+  "method": "GET",
+  "headers": {
+      "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+      "x-rapidapi-key": "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6"
+  }
+})
+.then(validateResponse)
+.then(readResponseAsJSON)
+.then((result) => {
+  data = result.latest_stat_by_country[0];
+   console.log(data);
+   console.log($totalCases);
+    $totalCases.innerText = data.total_cases;
+    $totalRecovered.innerText  = data.total_recovered;
+    $totalDeaths.innerText = data.total_deaths;
+    $countryName.innerText= data.country_name;
+})
+.catch(logError);
+}  
+
   

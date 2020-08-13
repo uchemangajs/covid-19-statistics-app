@@ -7,22 +7,10 @@ const $totalCases = document.querySelector('[total_cases]');
 const $totalRecovered = document.querySelector('[total_recovered]');
 const $totalDeaths = document.querySelector('[total_deaths]');
 const $dateElem = document.querySelector('[date-elem]');
-// const $chartDivMedia = document.querySelector('[chart-div]');
-// const x = window.matchMedia("(min-width: 48rem)");
 
 let data = {};
 console.log($collapsible);
 
-
-//     function mediaQuery (){
-//       if($chartDivMedia.style.display === 'none'){
-//         $chartDivMedia.style.display = '';
-          
-//       }else{
-//       $chartDivMedia.style.display = 'none';
-//   }
-
-//     }
     function toggleMenu () {
         if($dropdownMenu.style.display === 'none'){
            $dropdownMenu.style.display = '';
@@ -34,38 +22,6 @@ console.log($collapsible);
     }}
 
 $barBtn.addEventListener("click", toggleMenu);
-
-
-// for(let i=0; i < $collapsible.length; i++){
-//    console.log($collapsible[i])
-//     $collapsible[i].addEventListener("click", togglefxn);
-//      x.addListener(togglefxn);
-
-//     const $chartDiv = $collapsible[i].querySelector('[chart-div]');
-
-//     const $upArrow = $collapsible[i].querySelector('[up-arrow]');
-//     const $downArrow = $collapsible[i].querySelector('[down-arrow]');
-
-//     function togglefxn () {
-//         if($chartDiv.style.display === 'none' ){
-//           $chartDiv.style.display = '';
-            
-//         }else{
-//         $chartDiv.style.display = 'none';
-//     }
-    
-    
-//         if($downArrow.style.display === ''){
-//           $downArrow.style.display = 'none';
-//           $upArrow.style.display = '';
-            
-//         }else{
-//         $upArrow.style.display = 'none';
-//         $downArrow.style.display = '';
-//     }
-    
-// }
-//     }
   
 function logResult(result) {
    
@@ -166,7 +122,7 @@ var chart = new Chart(ctx, {
             label: 'My First dataset',
             backgroundColor: ['#FCC133', '#3EB650'],
             borderColor: 'none',
-            data: [numTotalCase, numRecoverCase]
+            data: [ numRecoverCase, numTotalCase]
         }],
     
         // These labels appear in the legend and in the tooltips when hovering different arcs
@@ -209,9 +165,7 @@ var chart = new Chart(ctx, {
 };
 
   (function fetchJSON() {
-    //   const apiLink = https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php;
-    //   const apiKey = 6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6;
-    //   const api = 'apiLink/apiKey'
+    
       fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
         "method": "GET",
         "headers": {
@@ -251,7 +205,45 @@ var chart = new Chart(ctx, {
 
   })();
   
+  const searchInput = document.querySelector("[search-input]");
+  let searchValue = searchInput.value;
+  console.log(searchValue)
+  
+   searchInput.addEventListener("keyup", function SearchCountry(e){
+  if(e.keyCode === 13){
+      event.preventDefault();
+      console.log(searchInput.value);        
+      findCountry();
+  }
+})
 
+function findCountry(country){     
+  country=searchInput.value;
+      console.log(country);
+
+      fetch(`https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=${country}`, {
+  "method": "GET",
+  "headers": {
+      "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+      "x-rapidapi-key": "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6"
+  }
+})
+.then(validateResponse)
+.then(readResponseAsJSON)
+.then((result) => {
+  data = result.latest_stat_by_country[0];
+   console.log(data);
+   console.log($totalCases);
+    $totalCases.innerText = data.total_cases;
+    $totalRecovered.innerText  = data.total_recovered;
+    $totalDeaths.innerText = data.total_deaths;
+    $dateElem.innerText= data.country_name;
+    showChart();
+})
+.catch(logError);
+}  
+
+  
 
 
 

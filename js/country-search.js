@@ -1,35 +1,28 @@
 
    'use strict';
-   
-
-
-    
-     
-
-        
-
 const $collapsible = document.getElementsByClassName('collapsible');
 const $dropdownMenu = document.querySelector('[dropdown-menu]');
 const $barBtn = document.querySelector('[bar-btn]');
-const $totalCases = document.querySelector('[total_cases]');
-const $totalRecovered = document.querySelector('[total_recovered]');
-const $totalDeaths = document.querySelector('[total_deaths]');
+const $totalCasesSearched = document.querySelector('[total_cases_searched]');
+const $totalRecoveredSearched = document.querySelector('[total_recovered_searched]');
+const $totalDeathsSearched = document.querySelector('[total_deaths_searched]');
 const $dateElem = document.querySelector('[date-elem]');
 const searchInput = document.querySelector("[search-input]");
-const country = searchInput.value;
+let country = searchInput.value;
+// import { searchInputCountryjs } from './country.js'
 
 // const $chartDivMedia = document.querySelector('[chart-div]');
 // const x = window.matchMedia("(min-width: 48rem)");
 
 let data = {};
-// console.log($collapsible);
+console.log(country);
 searchInput.addEventListener("keyup", function SearchCountry(e){
     if(e.keyCode === 13){
         event.preventDefault();
         console.log(searchInput.value);
-       
-
-        findCountry(country);
+       if(searchInput.value != ''){
+        findCountry();
+      }
     }
 })
 
@@ -93,10 +86,10 @@ for(let i=0; i < $collapsible.length; i++){
 
 
    function showChart () {
-      let numTotalCase = parseInt(data.total_cases.replace(/\,/g,''));
-      let numNewCase = parseInt(data.new_cases.replace(/\,/g,''));
-      let numRecoverCase = parseInt(data.total_recovered.replace(/\,/g,''));
-      let numTotalDeath= parseInt(data.total_deaths.replace(/\,/g,''));
+      let numTotalCase = parseInt(data.latest_stat_by_country[0].total_cases.replace(/\,/g,''));
+      let numNewCase = parseInt(data.latest_stat_by_country[0].new_cases.replace(/\,/g,''));
+      let numRecoverCase = parseInt(data.latest_stat_by_country[0].total_recovered.replace(/\,/g,''));
+      let numTotalDeath= parseInt(data.latest_stat_by_country[0].total_deaths.replace(/\,/g,''));
       console.log(numTotalCase);
 
       switch ($collapsible[i]) {
@@ -202,12 +195,13 @@ for(let i=0; i < $collapsible.length; i++){
   
 function logResult(result) {
    
-   console.log(result);
     data = result;
-    $totalCases.innerText = data.total_cases;
-    $totalRecovered.innerText  = data.total_recovered;
-    $totalDeaths.innerText = data.total_deaths;
-    $dateElem.innerText= data.statistic_taken_at;
+   console.log(data.latest_stat_by_country[0]);
+   console.log($totalCasesSearched);
+    $totalCasesSearched.innerText = data.latest_stat_by_country[0].total_cases;
+    $totalRecoveredSearched.innerText  = data.latest_stat_by_country[0].total_recovered;
+    $totalDeathsSearched.innerText = data.latest_stat_by_country[0].total_deaths;
+    $dateElem.innerText= data.latest_stat_by_country[0].country_name;
   }
   
   function logError(error) {
@@ -251,7 +245,8 @@ function logResult(result) {
 
   function findCountry(country){
     // inputCountry = document.querySelector('[search-input]');        
-        country = searchInput.value;
+    
+    country=searchInput.value;
         console.log(country);
 
         fetch(`https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=${country}`, {
@@ -265,5 +260,5 @@ function logResult(result) {
 .then(readResponseAsJSON)
 .then(logResult)
 .catch(logError);
-}   
+}  
   
