@@ -27,25 +27,27 @@
    <div class="container">
     <header>
         <nav >
+         <div class="nav-div">
           <div class="logo">
            <a href="/index.html"><img src="./image/images-removebg-preview.png" alt="Logo" aria-disabled="true"/></a>
            </div>
               
            <section id="installBanner" class="banner">
             <button id="installBtn" install-btn>Install app</button>
-          </section>   
-                 
-             <div class="dropdown" >     
+          </section> 
+            
             <button class="bars" aria-label="menu dropdown button" bar-btn>
                 <div class="nav-icon">
                   <div></div>
                   </div>
                 </button>
 
-            <div class="dropdown-content" dropdown-menu style="display: none;" aria-owns="bar-btn">
-                <i class="arrow down" down-arrow></i>
-                <a href="./index.html">Global Statistics</a>
-                <a href="/html/country-data.html"> Country Statistics</a>
+        </div>         
+             <div class="dropdown" >     
+            
+            <div class="dropdown-content" dropdown-menu style="display: none" aria-owns="bar-btn">
+                <i class="arrow down" down-arrow-nav></i>
+                <a href="/html/country-data.html" country-link> Country Statistics</a>
               </div>
             </div>
             
@@ -113,17 +115,7 @@
         </div>
     </div>
 
-
-     
-
-
-
-    
-
-    </section>
-       
-                 
-    
+    </section>  
     <section session-two>
       <div class="artlbl">
        <label for="article" wc> <h4>news items on cures and research</h4></label>
@@ -135,14 +127,16 @@
     </div>
     
     <script>  
-      if (window.matchMedia("(max-width: 850px)").matches) {
+      if (window.matchMedia("(max-width: 760px)").matches) {
       document.write('<script type="text/javascript" src="./js/phone-index.js"><\/script>');
       }else {
       document.write('<script type="text/javascript" src= "./js/desktop-index.js"><\/script>');
       }
       </script>
-       <!-- <script type="text/javascript" src="./js/country.js"></script> -->
-    <!-- <script type="text/javascript" src="./js/index.js"></script> -->
+    <!-- <script type="text/javascript" src="./js/fetch-data-service.js"></script> -->
+    <script type="text/javascript" src="./js/news-service.js"></script> 
+    <script type="text/javascript" src="./js/country-search.js"></script>
+    
     <!-- <script>
         if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

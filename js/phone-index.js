@@ -10,6 +10,9 @@ const $dateElem = document.querySelector('[date-elem]');
 const $countryName = document.querySelector("[country-name]");
 
 let data = {};
+
+// Implementing toggle menu
+
     function toggleMenu () {
         if($dropdownMenu.style.display === 'none'){
            $dropdownMenu.style.display = '';
@@ -22,6 +25,8 @@ let data = {};
 
 $barBtn.addEventListener("click", toggleMenu);
 
+
+// Implementing toggle div function
 
 for(let i=0; i < $collapsible.length; i++){
    console.log($collapsible[i])
@@ -55,14 +60,15 @@ for(let i=0; i < $collapsible.length; i++){
         
     }
 
-
+// Implementing the chart function using chart.js
 
    function showChart () {
       let numTotalCase = parseInt(data.total_cases.replace(/\,/g,''));
       let numNewCase = parseInt(data.new_cases.replace(/\,/g,''));
       let numRecoverCase = parseInt(data.total_recovered.replace(/\,/g,''));
       let numTotalDeath= parseInt(data.total_deaths.replace(/\,/g,''));
-      console.log(numTotalCase);
+      let numTotalPer_1m= parseInt(data.total_cases_per_1m_population.replace(/\,/g,''));
+      console.log(numRecoverCase);
 
       switch ($collapsible[i]) {
         case $collapsible[0]:
@@ -77,15 +83,20 @@ for(let i=0; i < $collapsible.length; i++){
                       label: 'My First dataset',
                       backgroundColor: ['#FCC133', '#292930'],
                       borderColor: '#292930',
-                      data: [numTotalCase, numNewCase]
+                      data: [1000000, numTotalPer_1m]
                   }],
               
                   // These labels appear in the legend and in the tooltips when hovering different arcs
                   labels: [
-                      `Total Cases: ${data.total_cases}`,
+                      `Total Cases Per 1m: ${data.total_cases_per_1m_population}`,
                       `New Cases: ${data.new_cases}`,
                       
                   ]
+
+
+
+
+                  
               },
               // data: {
               //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -121,10 +132,10 @@ for(let i=0; i < $collapsible.length; i++){
                 
                     // These labels appear in the legend and in the tooltips when hovering different arcs
                     labels: [
-                        'Total Cases',
-                        'Total Recovered',
-                        
-                    ]
+                      `Total Cases: ${data.total_cases}`,
+                      `Recovered Cases: ${data.total_recovered}`,
+                      
+                  ]
                 },
             
                 // Configuration options go here
@@ -190,29 +201,7 @@ function logResult(result) {
     return response.json();
     
   }
-  
-  function readResponseAsBlob(response) {
-    return response.blob();
-  }
-  
-  function readResponseAsText(response) {
-    return response.text();
-  }
-  
-  function showImage(responseAsBlob) {
-    const container = document.getElementById('img-container');
-    const imgElem = document.createElement('img');
-    container.appendChild(imgElem);
-    const imgUrl = URL.createObjectURL(responseAsBlob);
-    imgElem.src = imgUrl;
-  }
-  
-  function showText(responseAsText) {
-    const message = document.getElementById('message');
-    message.textContent = responseAsText;
-  }
-
-  
+   
 
   (function fetchJSON() {
     
@@ -229,66 +218,5 @@ function logResult(result) {
       .catch(logError);
   })();
 
-  (function showNews (){
-    fetch("https://newsapi.org/v2/top-headlines?q=covid-19&apiKey=86bfe8e7d643485aa6586ebb6ba2e883")
-    .then(data => {
-        return data.json()})
-        .then(d => {
-        console.log(d);
-        // articles = d.articles;
-        Array.from(d.articles).forEach(news => {
-            document.querySelector("#news").innerHTML+=`
-            <a href="${news.url}">
-                <div class="article">
-                 <h3>${news.title}</h3>
-                 <div class="imgHolder">
-                     <img src="${news.urlToImage}"  alt="">
-                 </div>
-                 <p>${news.description} </p>
-                </div>
-                </a>`
-        })
-    });
-
-  })();
-
-  const searchInput = document.querySelector("[search-input]");
-  let searchValue = searchInput.value;
-  console.log(searchValue)
-  
-   searchInput.addEventListener("keyup", function SearchCountry(e){
-  if(e.keyCode === 13){
-      event.preventDefault();
-      console.log(searchInput.value); 
-      // location.href="/html/country-search.html";            
-      findCountry();
-  }
-})
-
-function findCountry(country){      
-  
-  country=searchInput.value;
-      console.log(country);
-
-      fetch(`https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=${country}`, {
-  "method": "GET",
-  "headers": {
-      "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-      "x-rapidapi-key": "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6"
-  }
-})
-.then(validateResponse)
-.then(readResponseAsJSON)
-.then((result) => {
-  data = result.latest_stat_by_country[0];
-   console.log(data);
-   console.log($totalCases);
-    $totalCases.innerText = data.total_cases;
-    $totalRecovered.innerText  = data.total_recovered;
-    $totalDeaths.innerText = data.total_deaths;
-    $countryName.innerText= data.country_name;
-})
-.catch(logError);
-}  
-
+ 
   

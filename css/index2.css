@@ -15,7 +15,7 @@ header {
     margin-bottom: 1.2rem;
 }
 
-nav {
+.nav-div {
     display: flex;
     flex-direction: row;
     justify-content: space-between
@@ -130,10 +130,17 @@ a {
   width: 100%;
 }
 
+[down-arrow-nav]{
+    
+}
 
 
 .dropdown {
-    width: 100%
+    display: block;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 5px -1px;
+    
 }
 
 

@@ -2,8 +2,20 @@
 
 // const country_btn = document.querySelector('[country-btn]');
 // country_btn.addEventListener('click', showCountry);
+const $barBtn = document.querySelector('[bar-btn]');
+const $dropdownMenu = document.querySelector('[dropdown-menu]');
 
- 
+function toggleMenu () {
+    if($dropdownMenu.style.display === 'none'){
+       $dropdownMenu.style.display = '';
+        console.log('yes');
+        
+        
+    }else{
+        $dropdownMenu.style.display = 'none';
+}}
+
+$barBtn.addEventListener("click", toggleMenu);
  
 
 let results = {};
@@ -73,7 +85,7 @@ let results = {};
                                     //  showChart($chartElem); 
                                     let numTotalCase = parseInt( item.currentTarget.querySelector("[total-case-data]").innerText.replace(/\,/g,''));
                                     let numDeathCase = parseInt( item.currentTarget.querySelector("[death-case-data]").innerText.replace(/\,/g,''));
-                             
+                                    let numTotalRecovered = parseInt( item.currentTarget.querySelector("[recovery-case-data]").innerText.replace(/\,/g,''));
 
                                    
                                     var ctx = item.currentTarget.querySelector('[my-Chart]').getContext('2d');
@@ -85,15 +97,16 @@ let results = {};
                                         data : {
                                             datasets: [{
                                                 label: 'My First dataset',
-                                                backgroundColor: ['#FCC133', '#292930'],
+                                                backgroundColor: ['#FCC133','#3EB650', '#E12B38'],
                                                 borderColor: '#292930',
-                                                data: [numTotalCase, numDeathCase]
+                                                data: [numTotalCase, numTotalRecovered, numDeathCase]
                                             }],
                                         
                                             // These labels appear in the legend and in the tooltips when hovering different arcs
                                             labels: [
                                                 `Total Cases: ${country.cases}`,
-                                                `New Cases: ${country.deaths}`,
+                                                `Recovery Cases: ${country.total_recovered}`,
+                                                `New Cases: ${country.total_recovered}`,
                                                 
                                             ]
                                         },

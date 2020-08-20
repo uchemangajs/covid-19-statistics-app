@@ -49,27 +49,6 @@ function logResult(result) {
     
   }
   
-  function readResponseAsBlob(response) {
-    return response.blob();
-  }
-  
-  function readResponseAsText(response) {
-    return response.text();
-  }
-  
-  function showImage(responseAsBlob) {
-    const container = document.getElementById('img-container');
-    const imgElem = document.createElement('img');
-    container.appendChild(imgElem);
-    const imgUrl = URL.createObjectURL(responseAsBlob);
-    imgElem.src = imgUrl;
-  }
-  
-  function showText(responseAsText) {
-    const message = document.getElementById('message');
-    message.textContent = responseAsText;
-  }
-
   function showChart () {
     let numTotalCase = parseInt(data.total_cases.replace(/\,/g,''));
     let numNewCase = parseInt(data.new_cases.replace(/\,/g,''));
@@ -179,73 +158,3 @@ var chart = new Chart(ctx, {
       .then(showChart)
       .catch(logError);
   })();
-
-  (function showNews (){
-    fetch("https://newsapi.org/v2/top-headlines?q=covid-19&apiKey=86bfe8e7d643485aa6586ebb6ba2e883")
-    .then(data => {
-        return data.json()})
-        .then(d => {
-        console.log(d);
-                // articles = d.articles;
-                Array.from(d.articles).forEach(news => {
-                  document.querySelector("#news").innerHTML+=`
-                  <a href="${news.url}">
-                      <div class="article">
-                       <h3>${news.title}</h3>
-                       <div class="imgHolder">
-                           <img src="${news.urlToImage}"  alt="">
-                       </div>
-                       <p>${news.description} </p>
-                      </div>
-                      </a>`
-        })
-    });
-
-
-
-  })();
-  
-  const searchInput = document.querySelector("[search-input]");
-  let searchValue = searchInput.value;
-  console.log(searchValue)
-  
-   searchInput.addEventListener("keyup", function SearchCountry(e){
-  if(e.keyCode === 13){
-      event.preventDefault();
-      console.log(searchInput.value);        
-      findCountry();
-  }
-})
-
-function findCountry(country){     
-  country=searchInput.value;
-      console.log(country);
-
-      fetch(`https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=${country}`, {
-  "method": "GET",
-  "headers": {
-      "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-      "x-rapidapi-key": "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6"
-  }
-})
-.then(validateResponse)
-.then(readResponseAsJSON)
-.then((result) => {
-  data = result.latest_stat_by_country[0];
-   console.log(data);
-   console.log($totalCases);
-    $totalCases.innerText = data.total_cases;
-    $totalRecovered.innerText  = data.total_recovered;
-    $totalDeaths.innerText = data.total_deaths;
-    $dateElem.innerText= data.country_name;
-    showChart();
-})
-.catch(logError);
-}  
-
-  
-
-
-
-
-
