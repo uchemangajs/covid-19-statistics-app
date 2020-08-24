@@ -24,12 +24,12 @@
 
 </head>
 <body>
-   <div class="container">
+   <div class="main-container">
     <header>
-        <nav >
+        <nav nav>
          <div class="nav-div">
           <div class="logo">
-           <a href="/index.html"><img src="./image/images-removebg-preview.png" alt="Logo" aria-disabled="true"/></a>
+           <a href="/index.html"><img c src="./image/images-removebg-preview.png" alt="Logo" class="nav-img" aria-disabled="true"/></a>
            </div>
               
            <section id="installBanner" class="banner">
@@ -49,10 +49,8 @@
                 <i class="arrow down" down-arrow-nav></i>
                 <a href="/html/country-data.html" country-link> Country Statistics</a>
               </div>
-            </div>
-            
-            
-        </nav>
+            </div>                   
+        
         
         
         <h2 topic-link> <a href="/index.html"> covid-19 data and statistics</a></h2>
@@ -60,15 +58,16 @@
         <div class="sbstyle">
             <form action="#"  class = "sform">
                 <input type="text" search-input autofocus placeholder="Search..." aria-label="search-box">
-   <!--                   <input type="submit" value="search" >-->
                   </form> 
                   </div>
-
+           </nav>       
+        <div class="head-element"></div>
         <h4><span country-name>Global</span> Data and statistics</h4>
         <em>Updated on <span date-elem >date: </span> </em>
-
+      
     </header>
-    
+
+    <div class="container">
     <section session-one>
         <div class="collapsible" role="banner">
         <div class="total-confirmed" >
@@ -125,19 +124,26 @@
     </section>
 
     </div>
+
+    <footer id="main-footer">
+      <p>Copyright &copy; 2020, uchemanga| Tel: +2347060710099 All Rights Reserved</p>
+      <div>
+        <a href="#">terms of use</a> | <a href="#">Privacy Policy</a>
+      </div>
+    </footer>
     
     <script>  
-      if (window.matchMedia("(max-width: 760px)").matches) {
+      if (window.matchMedia("(max-width: 724px)").matches) {
       document.write('<script type="text/javascript" src="./js/phone-index.js"><\/script>');
       }else {
       document.write('<script type="text/javascript" src= "./js/desktop-index.js"><\/script>');
       }
       </script>
-    <!-- <script type="text/javascript" src="./js/fetch-data-service.js"></script> -->
-    <script type="text/javascript" src="./js/news-service.js"></script> 
-    <script type="text/javascript" src="./js/country-search.js"></script>
     
-    <!-- <script>
+    <script type="text/javascript" src="./js/news-service.js"></script> 
+    <script type="text/javascript" src="./js/nav.js"></script>
+    
+    <script>
         if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
@@ -182,6 +188,8 @@
       // Update UI notify the user they can add to home screen
       document.querySelector('#installBanner').style.display = 'flex';
     });
-  </script> -->
-</body>
+  </script> 
+
+       </div>
+       </body>
 </html>

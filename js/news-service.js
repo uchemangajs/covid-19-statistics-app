@@ -1,9 +1,9 @@
+const newsApi = "https://newsapi.org/v2/top-headlines?q=covid-19&apiKey=86bfe8e7d643485aa6586ebb6ba2e883&language=en"; 
 (function showNews (){
-    fetch("https://newsapi.org/v2/top-headlines?q=covid-19&apiKey=86bfe8e7d643485aa6586ebb6ba2e883")
+    fetch(newsApi)
     .then(data => {
         return data.json()})
         .then(d => {
-        console.log(d);
         // articles = d.articles;
         Array.from(d.articles).forEach(news => {
             document.querySelector("#news").innerHTML+=`

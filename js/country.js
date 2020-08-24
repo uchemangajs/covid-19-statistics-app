@@ -1,9 +1,8 @@
 'use strict';
 
-// const country_btn = document.querySelector('[country-btn]');
-// country_btn.addEventListener('click', showCountry);
 const $barBtn = document.querySelector('[bar-btn]');
 const $dropdownMenu = document.querySelector('[dropdown-menu]');
+const rapidoApiKey = "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6";
 
 function toggleMenu () {
     if($dropdownMenu.style.display === 'none'){
@@ -20,18 +19,18 @@ $barBtn.addEventListener("click", toggleMenu);
 
 let results = {};
 
+
 ( async function showCountry (){
    await fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-            "x-rapidapi-key": "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6"
+            "x-rapidapi-key": rapidoApiKey
         }
     })
     .then(data => {
             return data.json()})
             .then(d => {
-            console.log(d);
             results=d;
             // country-stat = d.country_stat;
             Array.from(d.countries_stat).forEach((country) => {
@@ -77,12 +76,10 @@ let results = {};
                     function togglefxn (item){
                         const $chartElem = item.currentTarget.querySelector('[my-chart]');
 
-                                console.log(index,item.currentTarget);
                                 
                                 if($chartElem.classList.contains('hide') || $chartElem.style.display ==='none' ){
                                      $chartElem.classList.remove('hide');
                                      $chartElem.style.display =''
-                                    //  showChart($chartElem); 
                                     let numTotalCase = parseInt( item.currentTarget.querySelector("[total-case-data]").innerText.replace(/\,/g,''));
                                     let numDeathCase = parseInt( item.currentTarget.querySelector("[death-case-data]").innerText.replace(/\,/g,''));
                                     let numTotalRecovered = parseInt( item.currentTarget.querySelector("[recovery-case-data]").innerText.replace(/\,/g,''));
@@ -99,7 +96,7 @@ let results = {};
                                                 label: 'My First dataset',
                                                 backgroundColor: ['#FCC133','#3EB650', '#E12B38'],
                                                 borderColor: '#292930',
-                                                data: [numTotalCase, numTotalRecovered, numDeathCase]
+                                                data: [(numTotalCase - (numTotalRecovered + numDeathCase)), numTotalRecovered, numDeathCase]
                                             }],
                                         
                                             // These labels appear in the legend and in the tooltips when hovering different arcs
@@ -110,17 +107,7 @@ let results = {};
                                                 
                                             ]
                                         },
-                                        // data: {
-                                        //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                                        //     datasets: [{
-                                        //         label: 'My First dataset',
-                                        //         backgroundColor: 'rgb(255, 99, 132)',
-                                        //         borderColor: 'rgb(255, 99, 132)',
-                                        //         data: [0, 10, 5, 2, 20, 30, 45]
-                                        //     }]
-                                        // },
-                                    
-                                        // Configuration options go here
+                                        
                                         options: {}
                                     
                                     })
@@ -143,8 +130,6 @@ let results = {};
     searchInput.addEventListener("keyup", function SearchCountry(e){
         if(e.keyCode === 13){
             event.preventDefault();
-            console.log(searchInput.value);
-            // location.href="/html/country-search.html";
             findCountry();
         }
     })  
@@ -155,7 +140,6 @@ let results = {};
            let $countryName = item.querySelector('[country-name-label]');
            let countryName = $countryName.innerText.toUpperCase() || $countryName.innerContent.toUpperCase() ;
           let SearchName = searchInput.value.toUpperCase();
-           console.log(index,countryName);
         if(countryName.indexOf(SearchName) > -1){
             item.style.display = "";
         }else{
