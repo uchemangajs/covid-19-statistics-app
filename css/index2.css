@@ -30,7 +30,7 @@ header {
 }
 
 .head-element {
-    margin-top: 8rem;
+    margin-top: 8.5rem;
 } 
 
 .nav-div {
@@ -200,6 +200,7 @@ header > em {
     border-radius: 3px;
     font-family: "monospace",Lucida Console, Courier;
     margin-top: 1rem;
+    
 }
 
 .sform {
@@ -207,12 +208,13 @@ header > em {
     display: flex;
     justify-content: center;
     border-color: #292930;
+    margin-bottom: 0.5rem;
     
 }
 
 
 .sform > input {
-    width: 70%;
+    width: 80%;
     background-color: #fff;
     border-radius: 3px;
     text-align: center;
