@@ -30,7 +30,7 @@ header {
 }
 
 .head-element {
-    margin-top: 8.5rem;
+    margin-top: 9rem;
 } 
 
 .nav-div {
@@ -166,14 +166,14 @@ a {
     text-align: center;
 }
 
-header > h4 {
+.head-element > h4 {
     margin: 0.5rem 0 0 0 ;
     padding: 0;
     font-variant: small-caps;
     color: #fff;
 }
 
-header > em {
+.head-element > em {
     color: #fff;
 }
 
