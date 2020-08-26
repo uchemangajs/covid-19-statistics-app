@@ -1,19 +1,25 @@
-const newsApi = "https://newsapi.org/v2/top-headlines?q=covid-19&apiKey=86bfe8e7d643485aa6586ebb6ba2e883&language=en"; 
 (function showNews (){
-    fetch(newsApi)
+    fetch("https://covid-19-news.p.rapidapi.com/v1/covid?lang=en&media=True&q=covid", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "covid-19-news.p.rapidapi.com",
+		"x-rapidapi-key": "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6"
+	}
+})
     .then(data => {
         return data.json()})
         .then(d => {
+            
         // articles = d.articles;
         Array.from(d.articles).forEach(news => {
             document.querySelector("#news").innerHTML+=`
-            <a href="${news.url}">
+            <a href="${news.link}">
                 <div class="article">
                  <h3>${news.title}</h3>
                  <div class="imgHolder">
-                     <img src="${news.urlToImage}"  alt="">
+                     <img src="${news.media}"  alt="">
                  </div>
-                 <p>${news.description} </p>
+                 <p>${news.summary}</p>
                 </div>
                 </a>`
         })
