@@ -176,6 +176,7 @@ function logResult(result) {
   
   // function to handle error
   function logError(error) {
+    console.log('Looks like there was a problem:', error);
   }
   
   function validateResponse(response) {

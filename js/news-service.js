@@ -6,11 +6,16 @@
 		"x-rapidapi-key": "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6"
 	}
 })
-    .then(data => {
+.then(response => {
+    if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response; 
+})    
+.then(data => {
         return data.json()})
         .then(d => {
-            
-        // articles = d.articles;
+         // articles = d.articles;
         Array.from(d.articles).forEach(news => {
             document.querySelector("#news").innerHTML+=`
             <a href="${news.link}">
