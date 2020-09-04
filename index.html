@@ -14,7 +14,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Covid-19 Stat">
   <meta name="apple-mobile-web-app-title" content="Covid-19 Stat">
-  <meta name="theme-color" content="#FF9800">
+  <meta name="theme-color" content="#292930">
   <meta name="msapplication-navbutton-color" content="#FF9800">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="msapplication-starturl" content="/index.html">
@@ -31,35 +31,39 @@
           <div class="logo">
            <a href="/index.html" onclick="window.open('/index.html', '_self');"><img c src="./image/images-removebg-preview.png" alt="Logo" class="nav-img" aria-disabled="true"/></a>
            </div>
-              
+
            <section id="installBanner" class="banner">
             <button id="installBtn" install-btn>Install app</button>
           </section> 
+             
+       <h2 topic-link><a href="/index.html" onclick="window.open('/index.html', '_self');" > covid-19 data and statistics</a></h2>
+
             
             <button class="bars" aria-label="menu dropdown button" bar-btn>
+                
                 <div class="nav-icon">
                   <div></div>
                   </div>
                 </button>
 
         </div>         
-             <div class="dropdown" >     
+             
+        
+        
+        <div class="sbstyle" sbstyle-scroll>
+            <form action="#"  class = "sform">
+                <input type="text" search-input  placeholder="Search..." aria-label="search-box">
+                  </form> 
+                  </div>
             
-            <div class="dropdown-content" dropdown-menu style="display: none" aria-owns="bar-btn">
+            <div class="dropdown"  >     
+            
+            <div class="dropdown-content" dropdown-menu aria-owns="bar-btn" style="display: none;">
                 <i class="arrow down" down-arrow-nav></i>
                 <a href="/html/country-data.html" onclick="window.open('/html/country-data.html', '_self');" country-link> Country Statistics</a>
               </div>
             </div>                   
         
-        
-        
-        <h2 topic-link> <a href="/index.html" onclick="window.open('/index.html', '_self');"> covid-19 data and statistics</a></h2>
-
-        <div class="sbstyle">
-            <form action="#"  class = "sform">
-                <input type="text" search-input  placeholder="Search..." aria-label="search-box">
-                  </form> 
-                  </div>
            </nav>       
         <div class="head-element">
         <h4><span country-name>Global</span> Data and statistics</h4>
@@ -76,7 +80,7 @@
                </div>
             
             <label for="cc"><h4>total confirmed cases</h4></label>
-            <div class="cc" total_cases>10000</div>
+            <div class="cc" total_cases>loading. . .</div>
 
         </div>
         <div class="cc-chart" chart-div>
@@ -92,7 +96,7 @@
                 <i class="arrow up" down-arrow style="display: none;"></i>
                </div>
             <label for="rc" wc><h4>recovery cases</h4></label>
-            <div class="rc cc" wc total_recovered>60000</div>
+            <div class="rc cc" wc total_recovered>loading. . .</div>
 
         </div>
         <div class="rc-chart"  chart-div>
@@ -106,7 +110,7 @@
                 <i class="arrow up" down-arrow style="display: none;"></i>
                </div>
             <label for="cc" wc><h4>death cases</h4></label>
-            <div class="dc cc" wc total_deaths>10000</div>
+            <div class="dc cc" wc total_deaths>loading. . .</div>
 
         </div>
         <div class="dc-chart"  chart-div>
@@ -132,6 +136,7 @@
       </div>
     </footer>
     
+
     <script>  
       if (window.matchMedia("(max-width: 724px)").matches) {
       document.write('<script type="text/javascript" src="./js/phone-index.js"><\/script>');
@@ -156,6 +161,8 @@
       });
     }
     </script>
+-->
+
 
 <script>
     let deferredPrompt;
