@@ -29,14 +29,14 @@
         <nav nav>
          <div class="nav-div">
           <div class="logo">
-           <a href="/index.html" onclick="window.open('/index.html', '_self');"><img c src="./image/images-removebg-preview.png" alt="Logo" class="nav-img" aria-disabled="true"/></a>
+           <a href="index.html" onclick="window.open('index.html', '_self');"><img c src="./image/images-removebg-preview.png" alt="Logo" class="nav-img" aria-disabled="true"/></a>
            </div>
 
            <section id="installBanner" class="banner">
             <button id="installBtn" install-btn>Install app</button>
           </section> 
              
-       <h2 topic-link><a href="/index.html" onclick="window.open('/index.html', '_self');" > covid-19 data and statistics</a></h2>
+       <h2 topic-link><a href="index.html" onclick="window.open('/index.html', '_self');" > covid-19 data and statistics</a></h2>
 
             
             <button class="bars" aria-label="menu dropdown button" bar-btn>
@@ -60,7 +60,7 @@
             
             <div class="dropdown-content" dropdown-menu aria-owns="bar-btn" style="display: none;">
                 <i class="arrow down" down-arrow-nav></i>
-                <a href="/html/country-data.html" onclick="window.open('/html/country-data.html', '_self');" country-link> Country Statistics</a>
+                <a href="../covid-19-statistics-app/html/country-data.html" country-link> Country Statistics</a>
               </div>
             </div>                   
         
@@ -148,6 +148,7 @@
     <script type="text/javascript" src="./js/news-service.js"></script> 
     <script type="text/javascript" src="./js/nav.js"></script>
     
+<!--
     <script>
         if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -164,6 +165,7 @@
 -->
 
 
+<!--
 <script>
     let deferredPrompt;
     window.addEventListener('beforeinstallprompt', event => {
@@ -196,6 +198,7 @@
       document.querySelector('#installBanner').style.display = 'flex';
     });
   </script> 
+-->
 
        </div>
        </body>

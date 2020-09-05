@@ -1,5 +1,5 @@
 (function showNews (){
-    fetch("https://covid-19-news.p.rapidapi.com/v1/covid?lang=en&media=True&q=covid", {
+    fetch("https://covid-19-news.p.rapidapi.com/v1/covid?lang=en&page_size=20&media=True&q=covid", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "covid-19-news.p.rapidapi.com",
