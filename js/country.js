@@ -4,6 +4,9 @@ const $barBtn = document.querySelector('[bar-btn]');
 const $dropdownMenu = document.querySelector('[dropdown-menu]');
 const rapidoApiKey = "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6";
 
+
+
+
 function toggleMenu () {
     if($dropdownMenu.style.display === 'none'){
        $dropdownMenu.style.display = '';
@@ -65,7 +68,8 @@ let results = {};
           
             })
             
-        }).then(() => {
+        })
+         .then(() => {
             const $countryChart =document.querySelectorAll('[country-chart]');
             $countryChart.forEach((item,index,arr) => {
                 
@@ -119,6 +123,10 @@ let results = {};
                         }   
                     })
         })
+    .then(() =>{
+            const $loading = document.querySelector('[loading]');
+             $loading.style.display='none';
+             })
        
          }
       )();

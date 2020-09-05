@@ -458,3 +458,9 @@ label {
     background-color: #3c3c3c;
 }
 
+[loading]{
+    position: absolute;
+    right: 48%;
+    font-weight: bold;
+    color: #fff;
+}  
