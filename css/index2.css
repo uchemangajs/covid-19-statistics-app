@@ -81,6 +81,8 @@ a {
 }
 
 .banner {
+    position: absolute;
+    left: 20%;
     align-content: center;
     display: none;
     justify-content: center;
@@ -164,8 +166,6 @@ a {
   
 
 .dropdown-content {
-    
-  background-color: ;
   width: 100% ;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
