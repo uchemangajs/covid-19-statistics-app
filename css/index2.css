@@ -252,9 +252,7 @@ i {
     margin-bottom: 3px;
     }
 
-  /* img {
-    display : none;
-} */
+   
 
 
 .total-confirmed {
@@ -279,10 +277,13 @@ label {
     font-family: Arial, Helvetica, sans-serif;
     font-variant: small-caps;
     text-decoration: underline;
-    
-
-    
     }
+
+/*
+[chart-div] canvas {
+        display: none;
+    }
+*/
 
 .death-case {
     background-color: #E12B38;
@@ -380,7 +381,12 @@ article > p {
         margin-bottom: 3px;
         }
 
+        i {
+            display: none;
+        }
+
         canvas {
+            display: inline-block;
             max-width: 100%;
             
             box-sizing: border-box;
@@ -401,3 +407,4 @@ article > p {
 
         
 }
+
