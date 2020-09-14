@@ -51,9 +51,11 @@
         
         
         <div class="sbstyle" sbstyle-scroll>
-            <form action="#"  class = "sform">
-                <input type="text" search-input  placeholder="Search..." aria-label="search-box">
-                  </form> 
+            <form action="#"  class = "sform" autocomplete="off">
+              <div class="autocomplete" autocomplete>  
+              <input type="text" search-input id="myInput" name="myCountry" autofocus  placeholder="Search Country . . ." aria-label="search-box" style="width:inherit">
+            </div>     
+            </form> 
                   </div>
             
             <div class="dropdown"  >     
@@ -147,9 +149,9 @@
     
     <script type="text/javascript" src="./js/news-service.js"></script> 
     <script type="text/javascript" src="./js/nav.js"></script>
-    
+    <script type="text/javascript" src="./js/autoComplete.js"></script>
 
-    <script>
+    <!-- <script>
         if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
@@ -196,7 +198,7 @@
       // Update UI notify the user they can add to home screen
       document.querySelector('#installBanner').style.display = 'flex';
     });
-  </script> 
+  </script>  -->
 
 
        </div>
