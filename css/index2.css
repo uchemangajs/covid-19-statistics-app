@@ -84,7 +84,7 @@ a {
 
 .banner {
     position: absolute;
-    left: 20%;
+    left:35%;
     align-content: center;
     display: none;
     justify-content: center;
@@ -144,8 +144,10 @@ a {
   
  
 .dropdown-content > i {
-  position: absolute;
-    right: 2.8rem
+    position: absolute;
+    right: 0.5rem;
+    border-color: black;
+    transition: 100ms;
 }
 
 .nav-icon {
@@ -168,14 +170,18 @@ a {
   
 
 .dropdown-content {
+    background-color:#fff;
   width: 100% ;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+    border-radius: 5px;
+    border-color: #fff;
+    
     
 }
 
 .dropdown-content a {
-  color: white;
+  color: black;
     font-weight:900;
   padding: 8px 16px;
   text-decoration: none;
@@ -186,12 +192,13 @@ a {
 
 
 .dropdown {
-    display: block;
-    width: 100%;
+    position: absolute;
+    top: 3rem;
+    width: 90%;
     text-align: center;
     box-shadow: 0 0 5px -1px;
     margin: 0;
-    padding: 0;
+    padding: 0;    
 }
 
 

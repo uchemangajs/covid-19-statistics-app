@@ -10,41 +10,50 @@
 <body>
     <div class="container">
     <header>
-        <nav>
+        <nav nav>
+         <div class="nav-div">
           <div class="logo">
-           <a href="../index.html" onclick="window.open('../index.html', '_self');"><img src="../image/images-removebg-preview.png" alt="Logo" aria-disabled="true"/></a>
+           <a href="../index.html" onclick="window.open('../index.html', '_self');"><img c src= "../image/images-removebg-preview.png" alt="Logo" class="nav-img" aria-disabled="true"/></a>
            </div>
-               
-                 
-             <div class="dropdown" >     
+
+            
+             
+       <h2 topic-link><a href="../index.html" onclick="window.open('../index.html', '_self');" > covid-19 data and statistics</a></h2>
+
+            
             <button class="bars" aria-label="menu dropdown button" bar-btn>
+                
                 <div class="nav-icon">
                   <div></div>
                   </div>
                 </button>
 
-            <div class="dropdown-content" dropdown-menu style="display: none;" aria-owns="bar-btn">
-                <i class="arrow down" down-arrow></i>
-                <a href="../index.html">Global Statistics</a>
-              </div>
-            </div>
-            
-            
-        </nav>
+        </div>         
+             
         
         
-        <h2 topic-link> <a href="#"> covid-19 data and statistics</a></h2>
-
-        <div class="sbstyle">
-            <form action="#"  class = "sform">
-                <input type="text" search-input   placeholder="Search..." aria-label="search-box">
-              </form> 
+        <div class="sbstyle" sbstyle-scroll>
+            <form action="#"  class = "sform" autocomplete="off">
+              <div class="autocomplete" autocomplete>  
+              <input type="text" search-input id="myInput" name="myCountry"  placeholder="Search Country . . ." aria-label="search-box" style="width:inherit">
+            </div>     
+            </form> 
                   </div>
-
-        <h4>Country Data and statistics</h4>
+            
+            <div class="dropdown"  >     
+            
+            <div class="dropdown-content" dropdown-menu aria-owns="bar-btn" style="display: none;">
+                <i class="arrow down" down-arrow-nav></i>
+                <a href="../index.html" country-link> Global Statistics</a>
+              </div>
+            </div>                   
+        
+           </nav>       
+        <div class="head-element">
+        <h4><span country-name>Country</span> Data and statistics</h4>
         <em>Updated on <span date-elem >date: </span> </em>
-
-    </header> 
+      </div>
+    </header>
 
     <section session-three>
        <!-- container for the generated element -->
@@ -54,9 +63,10 @@
            
 </section> 
      
-
+    </div>
 <script  type="text/javascript" src="../js/country.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script type="text/javascript" src="../js/nav.js"></script>
 
 </body>
 </html>

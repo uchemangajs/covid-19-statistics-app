@@ -4,12 +4,16 @@
     "lang": "en-US",
     "start_url": "/index.html",
     "display": "standalone",
-  "theme_color": "#FF9800",
-  "background_color": "#FF9800",
+  "theme_color": "#292930",
+  "background_color": "#292930",
     "icons": [
       {
         "src": "image/images-removebg-preview.png",
         "sizes": "225x225"
+      },
+      {
+        "src": "image/images-removebg-preview512.png",
+        "sizes": "512x512"
       }
       
     ]

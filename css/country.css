@@ -1,102 +1,124 @@
-*{
-    box-sizing: border-box;
-}
-
 body {
     
     background-color: #292930;
     box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 100vw;
     
 }
 
-.container {
+.main-container {
     margin: 0 auto;
-}
+    width:97vw;
+
+    }
 
 header {
-    /* background-color: c5c5c9; */
     margin-bottom: 1.2rem;
 }
 
-nav {
+ nav {
+
+   overflow: hidden;
+     padding-left: 0rem;
+     top: 0;
+     left:0;
+     width: 98%;
+}
+
+.nav-colored{
+    position: fixed;
+    background-color: rgb(65, 66, 62, 0.95);
+    transition-delay: 100ms;
+    width: 100%;
+    height: 4.8rem;
+    z-index:90;
+    }
+
+.head-element {
+    margin-top: 2rem; 
+} 
+
+.nav-div {
     display: flex;
     flex-direction: row;
-    justify-content: space-between
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding: 0;
+    
  }
 
 
 
+
+.logo{
+    position: absolute;
+  display: inline-block;
+} 
+
+
+.nav-img {
+ max-width: 15% ;
+ height: auto ;   
+}
+
+
+
+.logo > a {
+    margin: 0;
+    padding: 0;
+}
+
+[sbsstyle-scroll]{
+margin-left: 9%;  
+
+}
 
 a {
     text-decoration: none;
     color: #FCC133;
 }
 
-/* .banner {
-    align-content: center;
-    display: none;
-    justify-content: center;
-    width: 100%;
-  }
-
-  [install-btn] {
-    background-color: #ff9800;
-    border: none;
-    border-radius: 2px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    height: 36px;
-    letter-spacing: 0;
-    margin: 0px;
-    min-width: 64px;
-    overflow: hidden;
-    padding: 0 8px;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    width: 30%;
-  }
-
- */
 
 .bars {
-    /* position:; */
+/*    margin-right:10px;*/
+    position: absolute;
+  right: 5px;
   background:none;
     border:none;
     outline: none;
-    width: 100%;
+    
 
     
-/*    top:0.5rem;*/
 }
 
 .nav-icon:hover {
-    background-color: #296CDB;
+    padding: 0.1rem;
+    
+    
   }
   
   .nav-icon:focus {
     background-color: #0F52C1;
+      
   
     /* The outline parameter suppresses the border
     color / outline when focused */
     outline: 0;
   }
   
-  .bars:active {
-    background-color: #0039A8;
-  }
  
 .dropdown-content > i {
   position: absolute;
-    right: 2rem;
+    right: 0.5rem;
+    border-color: black;
+    transition: 100ms;
 }
 
+
 .nav-icon {
-    margin: em;
     width: 30px;
     float: right;
     
@@ -111,68 +133,85 @@ a {
     display: block;
     height: 3px;
     margin: 5px 0;
-  /*  transition: all .2s ease-in-out;*/
   }
 
   
 
 .dropdown-content {
-  /* display: none; */
-  /* position:  */
-  background-color: none;
+    background-color:#fff;
   width: 100% ;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+    border-radius: 5px;
+    border-color: #fff;
+    
+    
 }
 
 .dropdown-content a {
-  color: white;
+  color: black;
+    font-weight:900;
   padding: 8px 16px;
   text-decoration: none;
   display: block;
   width: 100%;
+    
 }
 
 
-
 .dropdown {
-    width: 100%
+    position: absolute;
+    top: 3rem;
+    left:10px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 0 5px -1px;
+    margin: 0;
+    padding: 0;    
 }
 
 
 [topic-link] {
-    margin: 0.5rem 0 0 0 ;
-    padding: 0;
+    margin-top: 3rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
     font-variant: small-caps;
     color: #fff;
     width: 100%;
     text-align: center;
+    
 }
 
-header > h4 {
-    margin: 0.5rem 0 0 0 ;
+.topic-link{
+    margin-top: 0.5rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-variant: small-caps;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+   font-size: large;
+}
+
+.head-element > h4 {
+    margin: 0.5rem 0 0 0.32rem ;
     padding: 0;
     font-variant: small-caps;
     color: #fff;
 }
 
-header > em {
+.head-element > em {
     color: #fff;
+    margin-left: 0.3rem;
 }
 
-/* .logo { */
 
 
+.nav-img:hover {
+    background-color: #383e46;
+    
+  }
 
-img {
-    max-width: 23%;
-    height: auto;
-
-}
-
-/* .topic-link {
-    margin-bottom: 5rem;
-} */
 
 .sbstyle {
     width: 100%;
@@ -181,14 +220,28 @@ img {
     align-items: center;
     border-radius: 3px;
     font-family: "monospace",Lucida Console, Courier;
-    margin-top: 1rem;
+    
+    
 }
+
+.sbstyle-scroll {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3px;
+    font-family: "monospace",Lucida Console, Courier;
+    margin-left: 1rem
+    
+}
+
 
 .sform {
     width: 100%;
     display: flex;
     justify-content: center;
     border-color: #292930;
+    margin-bottom: 0.5rem;
     
 }
 
@@ -204,25 +257,30 @@ img {
     
 }
 
+
 input[type="text"], select:focus, textarea{
     font-size: 16px;
+    text-align: center;
 }
-
 
 [date-elem] {
     font-weight: bold;
     color: aliceblue
 }
 
+.container{
+    position: relative;
+   z-index:30 ; 
+}
 
-/*
+
+
 .collapsible {
     
     display: flex;
     flex-direction: column;
     
 }
-*/
 
 .arrow-div {
     margin : none;
@@ -236,7 +294,7 @@ input[type="text"], select:focus, textarea{
 
 i {
   border:solid white;
-  border-width: 0 2px 2px 0;
+  border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
 }
@@ -250,7 +308,6 @@ i {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
-
 /*
 .collapsible > div {
     width: 100%;
@@ -464,3 +521,61 @@ label {
     font-weight: bold;
     color: #fff;
 }  
+
+
+.autocomplete {
+    position:absolute;
+    display: inline-block;
+    width: 80vw;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+      
+  }
+
+.autocomplete-scroll {
+    position:fixed;
+    display: inline-block;
+    width: 80vw;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+  
+  }
+
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+     
+      
+  }
+  
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+  }
+  
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+  }
+  
+  
+
