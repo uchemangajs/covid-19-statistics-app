@@ -9,19 +9,25 @@ const $totalDeaths = document.querySelector('[total_deaths]');
 const $dateElem = document.querySelector('[date-elem]');
 const $countryName = document.querySelector("[country-name]");
 const rapidoApiKey = "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6";
-
+const $container = document.getElementsByClassName('main-container');
 let data = {};
+
+
+
+
 
     function toggleMenu () {
         if($dropdownMenu.style.display === 'none'){
-           $dropdownMenu.style.display = '';
-            
-            
+           $dropdownMenu.style.display = ''; 
         }else{
             $dropdownMenu.style.display = 'none';
     }}
 
 $barBtn.addEventListener("click", toggleMenu);
+$barBtn.onblur = function(){
+  $dropdownMenu.style.display = 'none';
+}
+
   
 function logResult(result) {
    
