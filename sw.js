@@ -1,7 +1,6 @@
 const filesToCache = [
     '/',
     'css/index2.css',
-    'image/images-removebg-preview.png',
     'index.html',
     'pages/offline.html',
     'pages/404.html'

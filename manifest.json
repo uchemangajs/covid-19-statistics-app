@@ -8,12 +8,37 @@
   "background_color": "#292930",
     "icons": [
       {
-        "src": "image/images-removebg-preview.png",
-        "sizes": "225x225"
+        "src": "/covid-19-statistics-app/image/touch/icon-128-removebg-preview.png",
+        "sizes": "128x128",
+          "type": "image/png"
+      },
+      
+      {
+        "src": "/covid-19-statistics-app/image/touch/icon-192-removebg-preview.png",
+        "sizes": "192x192",
+          "type": "image/png"
+      },
+      
+      {
+        "src": "/covid-19-statistics-app/image/touch/icon-256-removebg-preview.png",
+        "sizes": "256x256",
+          "type": "image/png"
+      },
+
+      {
+        "src": "/covid-19-statistics-app/image/touch/icon-225-removebg-preview.png",
+        "sizes": "225x225",
+          "type": "image/png"
+      },      
+      {
+        "src": "/covid-19-statistics-app/image/touch/icon-384-removebg-preview.png",
+        "sizes": "384x384",
+          "type": "image/png"
       },
       {
-        "src": "image/images-removebg-preview512.png",
-        "sizes": "512x512"
+        "src": "/covid-19-statistics-app/image/touch/icon-512-removebg-preview.png",
+        "sizes": "512x512",
+          "type": "image/png"
       }
       
     ]
