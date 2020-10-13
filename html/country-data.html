@@ -13,7 +13,7 @@
         <nav nav>
          <div class="nav-div">
           <div class="logo">
-           <a href="../index.html" onclick="window.open('../index.html', '_self');"><img c src= "/covid-19-statistics-app/image/touch/icon-192-removebg-preview.png" alt="Logo" class="nav-img" aria-disabled="true"/></a>
+           <a href="../index.html" onclick="window.open('../index.html', '_self');"><img  src= "../image/touch/icon-192-removebg-preview.png" alt="Logo" class="nav-img" aria-disabled="true"/></a>
            </div>
 
             
@@ -42,11 +42,13 @@
             
             <div class="dropdown"  >     
             
-            <div class="dropdown-content" dropdown-menu aria-owns="bar-btn" style="display: none;">
+            <div class="dropdown-content hide" dropdown-menu aria-owns="bar-btn">
                 <i class="arrow down" down-arrow-nav></i>
-                <a href="../index.html" country-link> Global Statistics</a>
+                <a href="../index.html"
+                   onclick="window.open('../index.html', '_self')"
+                   country-link> Global Statistics</a>
                 <hr>
-                <a href="/html/country-data.html" country-link> Show All Countries</a>
+                <a href="country-data.html" onclick="window.open('country-data.html', '_self');" country-link> Show All Countries</a>
               </div>
             </div>                   
         
@@ -62,6 +64,11 @@
        <div class="" id="country" >
         <p loading > L O A D I N G . . . </p>
   </div>
+     <div class="ShowAllCountries" ShowAllCountries style="display: none" >
+        <a href="country-data.html" onclick="window.open('country-data.html', '_self');" country-link> Return to All Countries</a>
+
+        </div>      
+        
            
 </section> 
      

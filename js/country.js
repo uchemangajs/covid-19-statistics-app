@@ -7,20 +7,46 @@ const rapidoApiKey = "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6";
 
 
 
-function toggleMenu () {
-    if($dropdownMenu.style.display === 'none'){
-       $dropdownMenu.style.display = '';
-        console.log('yes');
-        
-        
-    }else{
-        $dropdownMenu.style.display = 'none';
-}}
+function toggleMenu (e) {
+        if($dropdownMenu.classList.contains('hide')){
+           $dropdownMenu.classList.remove('hide'); 
+          
+          
+        }else{
+
+            $dropdownMenu.classList.add('hide');
+          console.log('togleissue')
+
+            
+          }
+           document.addEventListener('click', rmvdd, true );
+
+          this.removeEventListener('click', rmvdd);
+
+    }
+
 
 $barBtn.addEventListener("click", toggleMenu);
-$barBtn.onblur = function(){
-$dropdownMenu.style.display = 'none';
-}
+
+const rmvdd = (e) => { 
+  
+ $dropdownMenu.classList.add('hide');
+  console.log('nawa for you')
+
+  $barBtn.addEventListener("click", () =>  {if($dropdownMenu.classList.contains('hide')){
+    $dropdownMenu.classList.remove('hide'); 
+   
+   
+ }else{
+
+     $dropdownMenu.classList.add('hide');
+   console.log('togleissue')
+
+     
+   }}
+)
+  
+  }
 
  
 
@@ -157,7 +183,7 @@ let results = {};
         }else{
             item.style.display = "none";
         }
-
+                
     })}
    
 
@@ -194,6 +220,7 @@ function autocomplete(inp, arr) {
               /*insert the value for the autocomplete text field:*/
               inp.value = this.getElementsByTagName("input")[0].value;
               findCountry();
+              document.querySelector('[ShowAllCountries]').style.display = '';
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();

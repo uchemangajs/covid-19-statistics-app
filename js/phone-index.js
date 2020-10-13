@@ -13,23 +13,46 @@ const rapidoApiKey = "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6";
 let data = {};
 
 // Implementing toggle menu
-
-    function toggleMenu () {
-        if($dropdownMenu.style.display === 'none'){
-           $dropdownMenu.style.display = '';
-            console.log('yes');
-            
-            
+function toggleMenu (e) {
+        if($dropdownMenu.classList.contains('hide')){
+           $dropdownMenu.classList.remove('hide'); 
+          
+          
         }else{
-            $dropdownMenu.style.display = 'none';
-    }}
+
+            $dropdownMenu.classList.add('hide');
+          console.log('togleissue')
+
+            
+          }
+           document.addEventListener('click', rmvdd, true );
+
+          this.removeEventListener('click', rmvdd);
+
+    }
+
 
 $barBtn.addEventListener("click", toggleMenu);
-$barBtn.onblur = function(){
-  $dropdownMenu.style.display = 'none';
-}
 
+const rmvdd = (e) => { 
+  
+ $dropdownMenu.classList.add('hide');
+  console.log('nawa for you')
 
+  $barBtn.addEventListener("click", () =>  {if($dropdownMenu.classList.contains('hide')){
+    $dropdownMenu.classList.remove('hide'); 
+   
+   
+ }else{
+
+     $dropdownMenu.classList.add('hide');
+   console.log('togleissue')
+
+     
+   }}
+)
+  
+  }
 
 // Implementing toggle div function
 

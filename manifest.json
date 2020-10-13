@@ -2,45 +2,48 @@
     "name": "Covid-19 Statistics App",
     "short_name": "Covid-19 Stat",
     "lang": "en-US",
-    "start_url": "/index.html",
+    "start_url": "index.html",
     "display": "standalone",
   "theme_color": "#292930",
   "background_color": "#292930",
     "icons": [
       {
-        "src": "/covid-19-statistics-app/image/touch/icon-128-removebg-preview.png",
+        "src": "./image/touch/icon-128-removebg-preview.png",
         "sizes": "128x128",
           "type": "image/png"
       },
       
       {
-        "src": "/covid-19-statistics-app/image/touch/icon-192-removebg-preview.png",
+        "src": "./image/touch/icon-192-removebg-preview.png",
         "sizes": "192x192",
           "type": "image/png"
       },
+        
+      {
+        "src": "./image/touch/maskable_icon.png",
+        "sizes": "196x196",
+          "type": "image/png",
+        "purpose": "any maskable"
+      },
       
       {
-        "src": "/covid-19-statistics-app/image/touch/icon-256-removebg-preview.png",
+        "src": "./image/touch/icon-256-removebg-preview.png",
         "sizes": "256x256",
           "type": "image/png"
       },
 
       {
-        "src": "/covid-19-statistics-app/image/touch/icon-225-removebg-preview.png",
-        "sizes": "225x225",
-          "type": "image/png"
-      },      
-      {
-        "src": "/covid-19-statistics-app/image/touch/icon-384-removebg-preview.png",
+        "src": "./image/touch/icon-384-removebg-preview.png",
         "sizes": "384x384",
           "type": "image/png"
       },
       {
-        "src": "/covid-19-statistics-app/image/touch/icon-512-removebg-preview.png",
+        "src": "./image/touch/icon-512-removebg-preview.png",
         "sizes": "512x512",
           "type": "image/png"
-      }
-      
-    ]
+      }       
+
+        
+      ]
   }
   

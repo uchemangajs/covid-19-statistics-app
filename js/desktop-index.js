@@ -12,21 +12,50 @@ const rapidoApiKey = "6195ba9f20mshde087fdcc4aa35dp124092jsna642f0179fa6";
 const $container = document.getElementsByClassName('main-container');
 let data = {};
 
-
-
-
-
-    function toggleMenu () {
-        if($dropdownMenu.style.display === 'none'){
-           $dropdownMenu.style.display = ''; 
+    function toggleMenu (e) {
+        if($dropdownMenu.classList.contains('hide')){
+           $dropdownMenu.classList.remove('hide'); 
+          
+          
         }else{
-            $dropdownMenu.style.display = 'none';
-    }}
+
+            $dropdownMenu.classList.add('hide');
+          console.log('togleissue')
+
+            
+          }
+           document.addEventListener('click', rmvdd, true );
+
+          this.removeEventListener('click', rmvdd);
+
+    }
+
 
 $barBtn.addEventListener("click", toggleMenu);
-$barBtn.onblur = function(){
-  $dropdownMenu.style.display = 'none';
-}
+
+const rmvdd = (e) => { 
+  
+ $dropdownMenu.classList.add('hide');
+  console.log('nawa for you')
+
+  $barBtn.addEventListener("click", () =>  {if($dropdownMenu.classList.contains('hide')){
+    $dropdownMenu.classList.remove('hide'); 
+   
+   
+ }else{
+
+     $dropdownMenu.classList.add('hide');
+   console.log('togleissue')
+
+     
+   }}
+)
+  
+  }
+
+
+
+  
 
   
 function logResult(result) {
