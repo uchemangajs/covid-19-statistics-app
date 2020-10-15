@@ -2,8 +2,8 @@ const filesToCache = [
     '/',
     'css/index2.css',
     'index.html',
-    '../covid-19-statistics-app/pages/offline.html',
-    '../covid-19-statistics-app/pages/404.html'
+    'pages/offline.html',
+    'pages/404.html'
   ];
   
   const staticCacheName = 'pages-cache-v2';

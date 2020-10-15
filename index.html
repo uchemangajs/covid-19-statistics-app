@@ -163,7 +163,7 @@
     <script>
         if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('../covid-19-statistics-app/sw.js')
+        navigator.serviceWorker.register('sw.js')
         .then(swReg => {
           console.log('Service Worker is registered', swReg);
         })

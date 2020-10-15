@@ -36,8 +36,7 @@ $barBtn.addEventListener("click", toggleMenu);
 const rmvdd = (e) => { 
   
  $dropdownMenu.classList.add('hide');
-  console.log('nawa for you')
-
+  
   $barBtn.addEventListener("click", () =>  {if($dropdownMenu.classList.contains('hide')){
     $dropdownMenu.classList.remove('hide'); 
    
@@ -45,9 +44,7 @@ const rmvdd = (e) => {
  }else{
 
      $dropdownMenu.classList.add('hide');
-   console.log('togleissue')
-
-     
+        
    }}
 )
   
