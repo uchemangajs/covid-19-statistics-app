@@ -1,5 +1,5 @@
 const filesToCache = [
-    '/',
+    './',
     'css/index2.css',
     'index.html',
     'pages/offline.html',
