@@ -195,7 +195,7 @@ function logResult(result) {
     $totalCases.innerText = data.total_cases;
     $totalRecovered.innerText  = data.total_recovered;
     $totalDeaths.innerText = data.total_deaths;
-    $dateElem.innerText= data.statistic_taken_at;
+    $dateElem.innerText= `${data.statistic_taken_at}GMT`;
   }
   
   // function to handle error

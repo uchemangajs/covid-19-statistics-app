@@ -112,7 +112,7 @@ a {
  
 .dropdown-content > i {
   position: absolute;
-    right: 1.5rem;
+    right: 0.1px;
     border-color: black;
     transition: 100ms;
 }
@@ -139,11 +139,12 @@ a {
 
 .dropdown-content {
     background-color:#fff;
-  width: 95% ;
+  width: 98% ;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
     border-radius: 5px;
     border-color: #fff;
+    margin-left: 1rem;
     
     
 }
